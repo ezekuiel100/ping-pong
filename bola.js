@@ -23,10 +23,12 @@ class Bola {
 
       if (this.x >= canvas.width - this.largura) {
         this.direcaoX = -3;
+        pj2++;
       }
 
       if (this.x <= 0) {
         this.direcaoX = 3;
+        pj1++;
       }
 
       if (this.y >= canvas.height - this.altura) {
@@ -36,7 +38,6 @@ class Bola {
         this.direcaoy = +3;
       }
 
-      //posicao bola e jogador igual e
       if (
         this.x <= this.jogador.posicaoX + this.jogador.largura &&
         this.x + this.largura >= this.jogador.posicaoX &&
@@ -44,7 +45,6 @@ class Bola {
         this.y + this.altura >= this.jogador.posicaoY
       ) {
         this.direcaoX *= -1;
-        console.log("a");
       }
     }
   }

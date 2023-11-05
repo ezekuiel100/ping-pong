@@ -8,9 +8,13 @@ let teclado = {
   esquerda: false,
 };
 
+let pj1 = 0;
+let pj2 = 0;
+
 let jogador = new Jogador(context, teclado);
+let placar = new Placar(context);
 let bola = new Bola(context, jogador);
-let computador = new Computador(context);
+let computador = new Computador(context, bola);
 
 window.addEventListener("keydown", (e) => {
   if (e.key == "ArrowUp") {
@@ -47,6 +51,8 @@ function game() {
   jogador.desenhar();
   bola.desenhar();
   computador.desenhar();
+  placar.desenhar();
+
   requestAnimationFrame(game);
 }
 requestAnimationFrame(game);
