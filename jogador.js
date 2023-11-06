@@ -33,3 +33,5 @@ class Jogador {
     );
   }
 }
+
+//Atualiza

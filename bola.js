@@ -4,7 +4,7 @@ class Bola {
     this.movendo = false;
     this.largura = 10;
     this.altura = 10;
-    this.direcaoX = 0;
+    this.direcaoX = -3;
     this.direcaoy = 0;
     this.x = canvas.width / 2 - this.largura / 2;
     this.y = canvas.height / 2 - this.largura / 2;
@@ -12,8 +12,17 @@ class Bola {
   }
   iniciar() {
     this.movendo = true;
-    this.direcaoX = -3;
+    this.direcaoX *= 1;
+    console.log(this.direcaoX);
     this.direcaoy = Math.random() * 10 > 5 ? -3 : 3;
+  }
+
+  resetarBola() {
+    this.movendo = false;
+    this.direcaoy = 0;
+    this.x = canvas.width / 2 - this.largura / 2;
+    this.y = canvas.height / 2 - this.largura / 2;
+    this.jogador.posicaoX = 0;
   }
 
   gerenciar() {
@@ -23,12 +32,16 @@ class Bola {
 
       if (this.x >= canvas.width - this.largura) {
         this.direcaoX = -3;
-        pj2++;
+        pj1++;
+        this.resetarBola();
+        this.direcaoX *= -1;
       }
 
       if (this.x <= 0) {
         this.direcaoX = 3;
-        pj1++;
+        pj2++;
+        this.resetarBola();
+        this.direcaoX = +3;
       }
 
       if (this.y >= canvas.height - this.altura) {
